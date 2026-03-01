@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+.claude
+node-v22.13.1-win-x64
+node-v22.zip
+
 # Distribution / packaging
 .Python
 build/
