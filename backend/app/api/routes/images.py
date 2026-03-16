@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import APIRouter, Depends, UploadFile, status
 from sqlalchemy.orm import Session
 
@@ -19,6 +21,20 @@ async def upload_image(
 ):
     img = await image_service.upload_image(db, place_id, current_user.id, file)
     return img
+
+
+@router.post("/{place_id}/images/bulk", response_model=List[ImageOut], status_code=status.HTTP_201_CREATED)
+async def upload_images_bulk(
+    place_id: str,
+    files: List[UploadFile],
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    results = []
+    for file in files:
+        img = await image_service.upload_image(db, place_id, current_user.id, file)
+        results.append(img)
+    return results
 
 
 @router.delete("/{place_id}/images/{image_id}", status_code=status.HTTP_204_NO_CONTENT)

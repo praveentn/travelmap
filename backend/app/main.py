@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.api.routes import auth, countries, images, map, places, stats
+from app.api.routes import auth, countries, images, map, places, quiz, stats
 from app.core.config import settings
 from app.db.init_db import init_db
 
@@ -42,6 +42,7 @@ app.include_router(images.router)
 app.include_router(stats.router)
 app.include_router(map.router)
 app.include_router(countries.router)
+app.include_router(quiz.router)
 
 # Serve uploaded files
 uploads_dir = Path(settings.UPLOAD_DIR)

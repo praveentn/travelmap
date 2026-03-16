@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Map, MapPin, LogOut, Globe } from 'lucide-react';
+import { LayoutDashboard, Map, MapPin, LogOut, Globe, Camera, Shuffle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const navItems = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/map', icon: Map, label: 'World Map' },
   { to: '/places', icon: MapPin, label: 'Places' },
+  { to: '/quiz', icon: Camera, label: 'Photo Quiz' },
+  { to: '/picker', icon: Shuffle, label: 'Country Picker' },
 ];
 
 export default function Sidebar() {

@@ -7,6 +7,8 @@ import DashboardPage from './pages/DashboardPage';
 import MapPage from './pages/MapPage';
 import PlacesPage from './pages/PlacesPage';
 import PlaceDetailPage from './pages/PlaceDetailPage';
+import GuessingGamePage from './pages/GuessingGamePage';
+import CountryPickerPage from './pages/CountryPickerPage';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
@@ -34,6 +36,8 @@ export default function App() {
           <Route path="map" element={<MapPage />} />
           <Route path="places" element={<PlacesPage />} />
           <Route path="places/:id" element={<PlaceDetailPage />} />
+          <Route path="quiz" element={<GuessingGamePage />} />
+          <Route path="picker" element={<CountryPickerPage />} />
         </Route>
       </Routes>
     </AuthProvider>
